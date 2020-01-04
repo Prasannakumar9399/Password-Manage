@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><%=title%></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Password Category <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/add-new-category">Add New Category</a></li>
+                        <li><a href="/passCat ">View All Category</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Password Details<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addnewpass">Add New Password</a></li>
+                        <li><a href="/viewallpass">View All Password</a></li>
+                    </ul>
+                </li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            <div class="navbar-header" style="float: right;">
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"></span><%if(loginUser){%><%=loginUser%><%}%></a
+                      >
+                    </div>
+          </div>
+        </nav>
+        
+        <div class="container">
+          <div class="row col-md-6 col-md-offset-3" style="margin-top: 60px;">
+            
+            <div class="panel panel-info">
+    
+              <div class="panel-heading">
+                <div class="panel-title">Edit Password Category</div>
+              </div>
+              <div class="panel-body">
+                <form class="form-horizontal" method="post" role="form">
+                  <div class="form-group">
+                    <label for="cname" class="control-label col-md-3"
+                      >Category Name</label
+                    >
+                    <div class="col-md-9">
+                      <input
+                        type="text"
+                        name="cname"
+                        value="<%=records.password_category%>"
+                        class="form-control "
+                        placeholder="Enter Category Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-offset-3 col-md-9">
+                    <input
+                      type="submit"
+                      value="Add Category"
+                      class="btn btn-primary"
+                    />
+                  </div>
+                  <p  class="text-right"><u><a href="/passCat">View All Category List</a><u></u></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+            $('#message').fadeOut(2000);
+            
+      $("ul.tabs li").click(function() {
+                  $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".tab_content").hide(); //Hide all tab content
+                var activeTab = $(this)
+                  .find("a")
+                  .attr("href"); //Find the rel attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active content
+                return false;
+              });
+            
+        </script>
+  </body>
+</html>
